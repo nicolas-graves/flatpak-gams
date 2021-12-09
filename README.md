@@ -19,6 +19,8 @@ GAMS being a proprietary application, the file just contains the yaml configurat
 - run `flatpak-builder --install build-dir org.flatpak.GAMS` to build the app in the `build-dir` directory
 - Maybe you'll need to copy your `gamslice.txt` file in a directory such as `.var/app/org.flatpak.GAMS/data/gamslice.txt `
 
+Get more information on building flatpak apps here : https://docs.flatpak.org/en/latest/flatpak-builder.html
+
 ## Support
 
 This is an incomplete repo, don't hesitate to interact through github or by email to enhance / debug it.
