@@ -1,0 +1,21 @@
+app-id: org.flatpak.GAMS
+runtime: org.freedesktop.Platform
+runtime-version: '21.08'
+sdk: org.freedesktop.Sdk
+command: gams
+modules:
+  - name: gams
+    buildsystem: simple
+    build-commands:
+      - chmod +x linux_x64_64_sfx.exe
+      - ./linux_x64_64_sfx.exe && rm linux_x64_64_sfx.exe
+      - cd gams37.1_linux_x64_64_sfx && ./gamsinst -a -license ../gamslice.txt
+      - for file in $(ls gams37.1_linux_x64_64_sfx) ; do install -D gams37.1_linux_x64_64_sfx/$file /app/bin/$file ; done;
+      - install -D gams37.1_linux_x64_64_sfx/gams /app/bin/gams
+      - install -D gams37.1_linux_x64_64_sfx/gamslib /app/bin/gamslib
+    sources:
+      - type: file
+        url: https://d37drm4t2jghv5.cloudfront.net/distributions/37.1.0/linux/linux_x64_64_sfx.exe
+        sha256: a3aa5994935e2c6091f40cda8a1fad602d93066d2ca63b90a2652169f84b1ae1
+      - type: file
+        path: gamslice.txt
